@@ -150,29 +150,29 @@ def plot_sentiment_by_track(track_title):
     
 def plot_sentiment_analysis_by_album(album_name='1989'):
 
-  neg_sentiments = grouped[grouped['track_title'].isin(full_catalog[album_name])]['negative (%)']
-  pos_sentiments = grouped[grouped['track_title'].isin(full_catalog[album_name])]['positive (%)']
+    neg_sentiments = grouped[grouped['track_title'].isin(full_catalog[album_name])]['negative (%)']
+    pos_sentiments = grouped[grouped['track_title'].isin(full_catalog[album_name])]['positive (%)']
 
-  fig, ax = plt.subplots(figsize=(15, 10))
-  ax.barh(np.arange(len(neg_sentiments)),
-          -neg_sentiments,
-          facecolor='red', alpha=0.7,
-          edgecolor='black',
-          label='negative')
-  ax.barh(np.arange(len(pos_sentiments)),
-          pos_sentiments,
-          facecolor='green', alpha=0.7,
-          edgecolor='black',
-          label='positive')
+    fig, ax = plt.subplots(figsize=(15, 10))
+    ax.barh(np.arange(len(neg_sentiments)),
+              -neg_sentiments,
+              facecolor='red', alpha=0.7,
+              edgecolor='black',
+              label='negative')
+    ax.barh(np.arange(len(pos_sentiments)),
+              pos_sentiments,
+              facecolor='green', alpha=0.7,
+              edgecolor='black',
+              label='positive')
 
-  ax.set_yticks(np.arange(len(pos_sentiments)))
-  ax.set_yticklabels(full_catalog['1989'], 
-                     fontsize=12)
-  ax.set_ylabel('Track Title', fontsize=18)
-  ax.set_xlabel('Negative - Positive Sentiment (%)',
-                fontsize=18)
+    ax.set_yticks(np.arange(len(pos_sentiments)))
+    ax.set_yticklabels(full_catalog['1989'], 
+                         fontsize=12)
+    ax.set_ylabel('Track Title', fontsize=18)
+    ax.set_xlabel('Negative - Positive Sentiment (%)',
+                    fontsize=18)
 
-  ax.set_title('Average Sentiment Scores for Taylor Swift Album: 1989',
-               fontsize=25)
-  ax.legend(loc='best')
-  plt.show()
+    ax.set_title('Average Sentiment Scores for Taylor Swift Album: 1989',
+                   fontsize=25)
+    ax.legend(loc='best')
+    plt.show()
